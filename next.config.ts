@@ -1,9 +1,13 @@
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  experimental: {
-    dynamicIO: true,
-  },
+interface CustomNextConfig extends NextConfig {
+  eslint?: {
+    ignoreDuringBuilds: boolean
+  }
+}
+
+const nextConfig: CustomNextConfig = {
+  cacheComponents: true,
   typescript: {
     ignoreBuildErrors: true,
   },
